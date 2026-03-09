@@ -6,6 +6,6 @@ sources:
     schema: main
     tables:
       - name: pokemon
-        identifier: pokemon # <--- ASÍ DE SIMPLE, SEGÚN TU IMAGEN
+        identifier: pokemon  
       - name: crypto
         identifier: listing_01kk4n367

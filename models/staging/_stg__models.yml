@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: stg_pokemon
+    description: "Datos de Pokemon limpiados desde la API"
+    columns:
+      - name: pokemon_id
+        description: "ID único del Pokemon"
+        tests:
+          - unique
+          - not_null
+      - name: height
+        description: "Altura del Pokemon"
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 1
+              max_value: 200
+      - name: base_experience
+        description: "Experiencia base"
+        tests:
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+              max_value: 1000
+
+  - name: obt_pokemon_analysis
+    description: "Tabla final para análisis de Pokemon y Cripto"
+    columns:
+      - name: pokemon_name
+        tests:
+          - not_null
+    tests:
+      - dbt_expectations.expect_table_row_count_to_be_between:
+          min_value: 10
+          max_value: 2000

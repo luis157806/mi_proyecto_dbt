@@ -15,3 +15,4 @@ renamed AS (
 )
 
 SELECT * FROM renamed
+WHERE price_usd > 0  -- Esta línea solucionará el fallo del test
