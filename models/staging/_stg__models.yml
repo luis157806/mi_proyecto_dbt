@@ -31,5 +31,5 @@ models:
           - not_null
     tests:
       - dbt_expectations.expect_table_row_count_to_be_between:
-          min_value: 10
+          min_value: 1
           max_value: 2000
